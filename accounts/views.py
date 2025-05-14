@@ -15,3 +15,19 @@ class LoginView(APIView):
             login(request, user)
             return Response({"message": "Login successful"})
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# New View for Receiving Temperature Data
+class TemperatureView(APIView):
+    def post(self, request):
+        # Get temperature data from the request body
+        temp = request.data.get('temperature')
+        
+        if temp is not None:
+            # Here you can process the temperature (e.g., store it in a database)
+            print(f"Received Temperature: {temp} °C")
+            
+            # Return a success response
+            return Response({"message": f"Temperature {temp} received successfully!"}, status=status.HTTP_200_OK)
+        
+        # If temperature is missing in the request
+        return Response({"error": "Temperature data is missing"}, status=status.HTTP_400_BAD_REQUEST)

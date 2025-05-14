@@ -27,7 +27,12 @@ SECRET_KEY = 'django-insecure-a=%9i!$*veei8ir92x#e1e!#-2mp+*x(c&r=oc!x04$1uw&f*-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'pit-backend-bosb.onrender.com',
+]
+
 
 
 # Application definition
